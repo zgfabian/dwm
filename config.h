@@ -4,7 +4,7 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int tabModKey = 0x40;
 static const unsigned int tabCycleKey = 0x17;
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -24,18 +24,18 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "web", "term", "emacs", "fm", "torr", "6", "7", "8", "9" };
+static const char *tags[] = { "web", "term", "emacs", "fm", "torr5", "mail6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,            0 },
-	{ "Emacs",    NULL,       NULL,       1 << 2,       0,            0 },
-	{ "Pcmanfm",  NULL,       NULL,       1 << 3,       0,            0 },
+	/* class          instance    title       tags mask     isfloating   monitor */
+	{ "qutebrowser",  NULL,       NULL,       1 << 8,       0,            0 },
+	{ "st-256color",  NULL,       NULL,       1 << 1,       0,            0 },
+	{ "Emacs",        NULL,       NULL,       1 << 2,       0,            0 },
+	{ "Pcmanfm",      NULL,       NULL,       1 << 3,       0,            0 },
 };
 
 /* layout(s) */
