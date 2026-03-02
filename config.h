@@ -10,7 +10,7 @@ static const unsigned int tabCycleKey = 0x17;
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[]          = { "UbuntuMonoNerdFontMono-Regular:size=12" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#2e2e2e";
 static const char col_gray2[]       = "#444444";
@@ -24,7 +24,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "web", "term", "emacs", "fm", "torr5", "mail6", "7", "8", "9" };
+static const char *tags[] = { "󰖟", "", "", "", "", "", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -32,8 +32,8 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class          instance    title       tags mask     isfloating   monitor */
-	{ "qutebrowser",  NULL,       NULL,       1 << 8,       0,            0 },
-	{ "st-256color",  NULL,       NULL,       1 << 1,       0,            0 },
+	{ "qutebrowser",  NULL,       NULL,       1 << 0,       0,            0 },
+	{ "xterm",        NULL,       NULL,       1 << 1,       0,            0 },
 	{ "Emacs",        NULL,       NULL,       1 << 2,       0,            0 },
 	{ "Pcmanfm",      NULL,       NULL,       1 << 3,       0,            0 },
 };
@@ -65,19 +65,19 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]   = { "st", NULL };
+static const char *termcmd[]   = { "xterm", NULL };
 static const char *fmcmd[]     = { "pcmanfm", NULL };
 static const char *browsecmd[] = { "qutebrowser", NULL };
 static const char *mute_vol[]  = { "amixer","-c","0","set", "Master", "toggle", NULL };
 static const char *up_vol[]    = { "amixer", "sset", "Master", "5%+", NULL };
 static const char *down_vol[]  = { "amixer", "sset", "Master", "5%-", NULL };
 static const char *screensh[]  = { "flameshot", "gui", NULL };
-static const char *rofidrun[]  = { "rofi", "-show", "drun", NULL };
+static const char *j4dmenu[]  = { "j4-dmenu-desktop", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_r,      spawn,          {.v = rofidrun } },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = j4dmenu } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_w,      spawn,          {.v = browsecmd } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = fmcmd } },
